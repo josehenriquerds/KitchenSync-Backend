@@ -1,0 +1,17 @@
+**/bin
+**/obj
+**/.vs
+**/.idea
+**/*.user
+**/*.suo
+**/*.swp
+**/*.swo
+**/*.log
+**/TestResults
+**/publish
+**/out
+**/node_modules
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
