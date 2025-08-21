@@ -1,0 +1,63 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+TestResults/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.vspscc
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio
+.vs/
+.idea/
+*.swp
+*.swo
+
+## Rider
+*.iml
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Publish output
+publish/
+out/
+artifacts/
+
+## Paket dependency manager
+.paket/
+paket-files/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuspec
+
+## Azure
+*.azurePubxml
+*.publishsettings
+
+## Others
+node_modules/
+.env
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# JetBrains Rider
+.idea/

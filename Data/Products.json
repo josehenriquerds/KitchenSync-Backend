@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Hambúrguer",
+    "category": "Lanches",
+    "prepSeconds": 420,
+    "available": true
+  },
+  {
+    "name": "Batata Frita",
+    "category": "Acompanhamentos",
+    "prepSeconds": 300,
+    "available": true
+  },
+  {
+    "name": "Suco de Laranja",
+    "category": "Bebidas",
+    "prepSeconds": 120,
+    "available": true
+  },
+  {
+    "name": "Strogonoff",
+    "category": "Pratos",
+    "prepSeconds": 600,
+    "available": true
+  }
+
+]
