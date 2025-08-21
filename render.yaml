@@ -1,21 +1,11 @@
 services:
   - type: web
     name: kitchensync-backend
-    env: dotnet
-    plan: free        # ou starter/professional se quiser mais recursos
+    runtime: dotnet
     branch: main
-    buildCommand: dotnet publish -c Release -o out
-    startCommand: dotnet out/KitchenSync.Api.dll
+    rootDir: KitchenSync.Api
+    buildCommand: dotnet build
+    startCommand: dotnet run --urls=http://0.0.0.0:10000
     envVars:
-      - key: DOTNET_RUNNING_IN_CONTAINER
-        value: true
-      - key: DOTNET_USE_POLLING_FILE_WATCHER
-        value: true
-      - key: DOTNET_HOST_PATH
-        value: /usr/share/dotnet/dotnet
-      - key: DOTNET_NOLOGO
-        value: true
-      - key: ASPNETCORE_URLS
-        value: http://0.0.0.0:10000
-      - key: DOTNET_CLI_TELEMETRY_OPTOUT
-        value: true
+      - key: DOTNET_VERSION
+        value: 8.0.100
