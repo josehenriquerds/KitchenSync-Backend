@@ -1,31 +1,26 @@
-# =========================
-# 1) Build stage
-# =========================
+# ============ 1) Build ============
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Otimiza cache
-COPY KitchenSync.Api/*.csproj ./KitchenSync.Api/
-RUN dotnet restore ./KitchenSync.Api/KitchenSync.Api.csproj
+# Copia só o csproj p/ cache do restore
+COPY *.csproj ./
+RUN dotnet restore ./KitchenSync.Api.csproj
 
-# Copia o restante
-COPY KitchenSync.Api/ ./KitchenSync.Api/
+# Copia o restante do código (exceto o que estiver no .dockerignore)
+COPY . ./
 
-# Publica em Release (self-contained opcional)
-WORKDIR /src/KitchenSync.Api
-RUN dotnet publish -c Release -o /out
+# Publica em Release
+RUN dotnet publish ./KitchenSync.Api.csproj -c Release -o /out
 
-# =========================
-# 2) Runtime stage
-# =========================
+# ============ 2) Runtime ==========
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
-# Copia artefatos
+# Copia artefatos publicados
 COPY --from=build /out ./
 
-# Exposição local (no Render é ignorada, mas ajuda no dev)
+# Exposição local (Render ignora, mas ajuda no dev)
 EXPOSE 8080
 
-# Usa bash para interpolar $PORT em runtime. Default 8080 localmente.
-ENTRYPOINT [ "bash", "-c", "dotnet KitchenSync.Api.dll --urls http://0.0.0.0:${PORT:-8080}" ]
+# Interpola $PORT em runtime (Render define PORT)
+ENTRYPOINT ["bash", "-c", "dotnet KitchenSync.Api.dll --urls http://0.0.0.0:${PORT:-8080}"]
