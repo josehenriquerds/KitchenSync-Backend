@@ -1,11 +1,13 @@
 services:
   - type: web
     name: kitchensync-backend
-    runtime: dotnet
-    branch: main
-    rootDir: KitchenSync.Api
-    buildCommand: dotnet build
-    startCommand: dotnet run --urls=http://0.0.0.0:10000
+    env: docker
+    plan: free
+    autoDeploy: true
+    region: oregon  # ou a região que preferir
+    dockerfilePath: ./dockerfile   # se renomear para Dockerfile, pode remover esta linha
+    healthCheckPath: /health       # ajuste se você tiver endpoint, ex: /api/health
     envVars:
-      - key: DOTNET_VERSION
-        value: 8.0.100
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+    # Se você usa connection string/segredos, declare aqui como envVars também.
