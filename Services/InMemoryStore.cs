@@ -70,6 +70,8 @@ namespace KitchenSync.Api.Services
             Add("FILE DE PEIXE", FRITURAS, type: DishType.Porcao);
             Add("SALGADINHOS", FRITURAS, type: DishType.Porcao);
             Add("MINITICKEN", FRITURAS);
+            Add("ABOBRINHA EMPANADA", FRITURAS);
+
 
             // Caldos / panela
             Add("CALDO VERDE", CALDOS);
@@ -113,6 +115,10 @@ namespace KitchenSync.Api.Services
             Add("MOELA", CARNES, type: DishType.Porcao);
             Add("OVERA", CARNES);
             Add("CHORISCO", CARNES, type: DishType.Porcao, tags: new[] { "chouriço" });
+            Add("MOELA", CARNES);
+            Add("STEAK RECHEADA", CARNES);
+            Add("CAMARÃO", CARNES);
+            Add("MOQUECA", CARNES);
 
             // Guarnições quentes / refogados
             Add("QUIABO FRITO", GUARN, type: DishType.Porcao);
@@ -130,6 +136,8 @@ namespace KitchenSync.Api.Services
             Add("ARROZ", ACOMP, isRecurring: true);
             Add("FEIJÃO CALDO", ACOMP, isRecurring: true, tags: new[] { "feijão", "feijao" });
             Add("FEIJÃO TROPEIRO", ACOMP, isRecurring: true);
+            Add("QUIABO ENSOPADO", ACOMP);
+            Add("BATATA RECHEADA", ACOMP);
 
             // Saladas e frios
             Add("MAIONESE MOLHO", SALADAS);
@@ -156,7 +164,7 @@ namespace KitchenSync.Api.Services
             Add("OVO DE CODORNA", SALADAS);
             Add("AZEITONA", SALADAS);
             Add("PALMITO", SALADAS);
-
+            Add("REPOLHO REFOGADO", SALADAS);
             // Especiais
            
         }
